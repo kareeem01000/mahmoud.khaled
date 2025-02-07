@@ -3,486 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahmoud Khaled | Software Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #4361ee;
-            --accent-color: #48bfe3;
-            --text-color: #2d3436;
-            --bg-color: #ffffff;
-            --section-bg: #f8f9ff;
-            --gradient: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* Header Styles */
-        header {
-            background: var(--primary-color);
-            color: white;
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient);
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .header-content h1 {
-            font-size: 3.5em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-        }
-
-        .header-content h2 {
-            font-size: 1.8em;
-            font-weight: 500;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        section:nth-child(even) {
-            background-color: var(--section-bg);
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 60px;
-            color: var(--primary-color);
-            text-align: center;
-            font-weight: 800;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        /* Experience Styles */
-        .experience-item {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .experience-header {
-            margin-bottom: 25px;
-        }
-
-        .experience-title {
-            font-size: 1.5em;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .experience-company {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.2em;
-        }
-
-        .experience-date {
-            color: #666;
-            font-size: 0.95em;
-            margin-top: 5px;
-        }
-
-        .experience-list li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .experience-list li::before {
-            content: "→";
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Skills Styles */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-item {
-            background: var(--gradient);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            font-weight: 500;
-            transition: transform 0.2s ease;
-        }
-
-        .skill-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Projects Styles */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .project-title {
-            color: var(--primary-color);
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .project-tech {
-            display: inline-block;
-            background: var(--section-bg);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        /* Education Styles */
-        .education-item {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .education-item h3 {
-            color: var(--primary-color);
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        /* Languages Styles */
-        .languages-list {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .language-item {
-            background: white;
-            padding: 25px 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            font-weight: 600;
-            color: var(--primary-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .language-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        section {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2.5em;
-            }
-
-            .header-content h2 {
-                font-size: 1.3em;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-info a {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .languages-list {
-                flex-direction: column;
-            }
-
-            .language-item {
-                text-align: center;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        /* Scroll Behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--section-bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--secondary-color);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-color);
-        }
-    </style>
+    <title>Mahmoud Khaled | Senior Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>:root{--primary:#0f172a;--secondary:#3b82f6;--accent:#6366f1;--dark:#1e293b;--light:#f8fafc;--gradient:linear-gradient(135deg,var(--secondary),var(--accent));--shadow:0 25px 50px -12px rgba(0,0,0,.15)}*{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}body{background:var(--light);color:var(--dark);line-height:1.7}nav{position:fixed;width:100%;z-index:1000;backdrop-filter:blur(10px);background:rgba(255,255,255,.9)}.nav-container{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.nav-logo{font-size:1.5rem;font-weight:700;color:var(--primary);text-decoration:none}.nav-menu{display:flex;gap:2rem;list-style:none}.nav-link{color:var(--dark);text-decoration:none;font-weight:500;transition:.3s}.nav-link:hover{color:var(--secondary)}.hero{min-height:100vh;background:var(--primary);display:flex;align-items:center;position:relative;overflow:hidden}.hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(59,130,246,.15) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(99,102,241,.15) 0,transparent 50%)}.hero-content{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 2rem;color:#fff}.hero-title{font-size:clamp(3rem,8vw,5rem);font-weight:800;line-height:1.1;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero-subtitle{font-size:clamp(1.5rem,4vw,2rem);margin:1rem 0 2rem}.hero-cta{display:flex;gap:1rem}.btn{padding:1rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;transition:.3s}.btn-primary{background:var(--gradient);color:#fff}.btn-secondary{background:rgba(255,255,255,.1);color:#fff}.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.section{padding:6rem 2rem}.container{max-width:1400px;margin:0 auto}.section-title{font-size:2.5rem;font-weight:700;margin-bottom:3rem;text-align:center;position:relative}.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:60px;height:4px;background:var(--gradient);border-radius:2px}.card{background:#fff;border-radius:20px;padding:2rem;box-shadow:var(--shadow);transition:.3s;height:100%}.card:hover{transform:translateY(-5px)}.grid{display:grid;gap:2rem}.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.experience-title{font-size:1.5rem;color:var(--secondary);margin-bottom:.5rem}.experience-company{font-weight:600}.experience-date{color:#666;margin-bottom:1rem}.skill-category{margin-bottom:2rem}.skill-title{color:var(--secondary);margin-bottom:1rem}.skill-list{display:flex;flex-wrap:wrap;gap:.5rem}.skill-item{background:var(--light);padding:.5rem 1rem;border-radius:100px;font-size:.9rem}.project-title{font-size:1.3rem;color:var(--secondary);margin-bottom:1rem}.project-tech{color:#666;margin-bottom:1rem}.contact-info{text-align:center}.social-links{display:flex;justify-content:center;gap:2rem;margin-top:2rem}.social-link{color:var(--dark);font-size:1.5rem;transition:.3s}.social-link:hover{color:var(--secondary);transform:translateY(-3px)}@media (max-width:768px){.nav-menu{display:none}.hero-cta{flex-direction:column}.btn{width:100%;text-align:center}}</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Mahmoud Khaled</h1>
-                <h2>Senior Software Engineer</h2>
-                <div class="contact-info">
-                    <a href="mailto:mahmoud.khaled19640@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                        mahmoud.khaled19640@gmail.com
-                    </a>
-                    <a href="tel:+201009824650">
-                        <i class="fas fa-phone"></i>
-                        +201009824650
-                    </a>
-                    <a href="https://linkedin.com/in/mahmoud-khaled" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/Mahmoud-Khaled" target="_blank">
-                        <i class="fab fa-github"></i>
-                        GitHub
-                    </a>
-                </div>
-            </div>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MK</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <section id="summary">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="experience-item">
-                <p>Experienced software engineer with a strong background in programming, problem-solving, and software development. Proficient in a wide range of programming languages, frameworks, and technologies, with a track record of successfully delivering high-performance solutions. Highly analytical and eager to tackle complex challenges. Skilled in optimizing back-end systems, database management, and implementing effective designs.</p>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Mahmoud Khaled</h1>
+            <h2 class="hero-subtitle">Senior Software Engineer</h2>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
             </div>
         </div>
     </section>
 
-    <section id="experience">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3 class="experience-title">Senior Software Engineer</h3>
-                    <p class="experience-company">MCS</p>
-                    <p class="experience-date">January 2023 – Present | Zharaa EL Maadi, Egypt</p>
-                </div>
-                <ul class="experience-list">
-                    <li>Architected and implemented diverse projects utilizing Microservices, Monolith, and Modular Monolith architectures</li>
-                    <li>Developed real-time communication systems using gRPC, MQTT, TCP, and SignalR technologies</li>
-                    <li>Led system design initiatives, creating comprehensive documentation including flowcharts, sequence diagrams, and C4 models</li>
-                    <li>Mentored junior developers and managed project deployments using CI/CD Azure pipelines</li>
-                    <li>Successfully modernized legacy VB applications to .NET Core 6, improving performance and maintainability</li>
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <p>Experienced software engineer with a strong background in programming, problem-solving, and software development. Proficient in a wide range of programming languages, frameworks, and technologies, with a track record of successfully delivering high-performance solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="card">
+                <h3 class="experience-title">Senior Software Engineer</h3>
+                <p class="experience-company">MCS</p>
+                <p class="experience-date">January 2023 - Present</p>
+                <ul>
+                    <li>Architected and implemented diverse projects utilizing Microservices</li>
+                    <li>Developed real-time communication systems using gRPC, MQTT, TCP</li>
+                    <li>Led system design initiatives and mentored junior developers</li>
+                    <li>Managed deployment projects using CI/CD Azure pipelines</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
+            <h2 class="section-title">Skills</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="skill-title">Programming</h3>
                     <div class="skill-list">
                         <span class="skill-item">C#</span>
                         <span class="skill-item">JavaScript</span>
                         <span class="skill-item">Java</span>
-                        <span class="skill-item">C++</span>
                         <span class="skill-item">Python</span>
+                        <span class="skill-item">C++</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Technologies</h3>
+                <div class="card">
+                    <h3 class="skill-title">Technologies</h3>
                     <div class="skill-list">
                         <span class="skill-item">.NET Core</span>
                         <span class="skill-item">ASP.NET</span>
                         <span class="skill-item">REST API</span>
-                        <span class="skill-item">Entity Framework</span>
                         <span class="skill-item">Microservices</span>
-                        <span class="skill-item">SignalR</span>
+                        <span class="skill-item">Docker</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
+                <div class="card">
+                    <h3 class="skill-title">Tools</h3>
                     <div class="skill-list">
-                        <span class="skill-item">Azure DevOps</span>
                         <span class="skill-item">Git</span>
-                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Azure DevOps</span>
                         <span class="skill-item">SQL Server</span>
                         <span class="skill-item">MongoDB</span>
                     </div>
@@ -491,46 +97,40 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid grid-3">
+                <div class="card">
                     <h3 class="project-title">Social-hub Platform</h3>
-                    <span class="project-tech">C# • .NET Core • Web API</span>
-                    <p>A sophisticated social networking platform built with N-Tier architecture, featuring real-time communication through SignalR and third-party integrations. Implements advanced identity management and follows enterprise-level design patterns.</p>
+                    <p class="project-tech">C# • .NET Core • Web API</p>
+                    <p>A sophisticated social networking platform with real-time communication and third-party integrations.</p>
                 </div>
-                <div class="project-card">
+                <div class="card">
                     <h3 class="project-title">Identity System</h3>
-                    <span class="project-tech">C# • .NET Core • JWT</span>
-                    <p>Enterprise-grade authentication and authorization system with JWT implementation, role-based access control, and seamless integration capabilities. Built on robust N-Tier architecture for optimal scalability.</p>
+                    <p class="project-tech">C# • JWT • OAuth</p>
+                    <p>Enterprise-grade authentication and authorization system with advanced security features.</p>
                 </div>
-                <div class="project-card">
+                <div class="card">
                     <h3 class="project-title">Security Suite</h3>
-                    <span class="project-tech">C# • Algorithms • Cryptography</span>
-                    <p>Comprehensive security package implementing various encryption algorithms including AES, DES, and RSA. Features advanced number theory implementations and optimized computational processes.</p>
+                    <p class="project-tech">C# • Cryptography • AES</p>
+                    <p>Comprehensive security package implementing various encryption algorithms and protocols.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education">
+    <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>Ain Shams University • Cairo, Egypt</p>
-                <p>2017 – 2021</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="languages">
-        <div class="container">
-            <h2 class="section-title">Languages</h2>
-            <div class="languages-list">
-                <div class="language-item">English</div>
-                <div class="language-item">Arabic</div>
+            <h2 class="section-title">Contact</h2>
+            <div class="card contact-info">
+                <p>mahmoud.khaled19640@gmail.com</p>
+                <p>+201009824650</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/mahmoud-khaled" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Mahmoud-Khaled" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="mailto:mahmoud.khaled19640@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </section>
